@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { DesignationComponent } from '../designation/designation.component';
-import { RolesComponent } from '../components/roles/roles.component';
 import { CommonModule } from '@angular/common';
+import { DesignationComponent } from '../designation/designation.component';
+import { RolesComponent } from '../roles/roles.component';
 
 @Component({
   selector: 'app-master',

@@ -1,3 +1,49 @@
+
+
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr no</th>
+                    <th>Role Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of roles">
+                    <td>{{ role.roleId }}</td>
+                    <td>{{ role.role }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="row">
+    <div class="col-4">
+        <ul>
+            <li *ngFor="let item of roles">
+                {{ item.role }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <select>
+            <option *ngFor="let role of roles" [value]="role.roleId">
+                {{ role.role }}
+            </option>
+        </select>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-warning mx-2" *ngFor="let role of roles">
+            {{ role.role }}
+        </button>
+    </div>
+</div> -->
+
 <!-- <p>roles works!</p> -->
 
 <!-- {{}} used to render variable's value from ts component  -->
