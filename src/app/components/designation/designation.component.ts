@@ -21,7 +21,7 @@ export class DesignationComponent implements OnInit {
     this.masterService.getDesignations().subscribe((result: APIResponseModel) => {
       this.designations = result.data;
       this.isLoader = false;
-    }, error => {
+    }, error => { 
       alert("API error");
     });
   }
