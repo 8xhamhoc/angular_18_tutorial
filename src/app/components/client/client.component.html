@@ -14,18 +14,25 @@
                                     <th>Contact Name</th>
                                     <th>Person Name</th>
                                     <th>Contact No</th>
+                                    <th>Address</th>
                                     <th>City</th>
-                                    <th>Contact Name</th>
-                                    <th>Sr no</th>
-                                    <th>Contact Name</th>
-                                    <th>Sr no</th>
-                                    <th>Contact Name</th>
-                                    <th>Sr no</th>
-                                    <th>Contact Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                @for (item of clients; track $index) {
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ item.companyName }}</td>
+                                        <td>{{ item.contactPersonName }}</td>
+                                        <td>{{ item.contactNo }}</td>
+                                        <td>{{ item.city }}</td>
+                                        <td>
+                                            <button (click)="onEdit(item)" class="btn btn-primary">Edit</button>
+                                            <button (click)="onDelete(item.clientId)" class="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -42,43 +49,43 @@
                 <div class="row">
                     <div class="col-6">
                         <label for="">Person Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="clientObj.contactPersonName" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Company Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="clientObj.companyName" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Contact No</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="clientObj.contactNo" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Address</label>
-                        <textarea class="form-control"></textarea>
+                        <textarea [(ngModel)]="clientObj.address" class="form-control"></textarea>
                     </div>
                     <div class="col-6">
                         <label for="">City</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="clientObj.city" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">State</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="clientObj.state" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Pin Code</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="clientObj.pincode" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">Employee Strength</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="clientObj.employeeStrength" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">GstNo</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="clientObj.gstNo" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">RegNo</label>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="clientObj.regNo" class="form-control">
                     </div>
                 </div>
                 <div class="row">
@@ -86,7 +93,9 @@
                         <button class="btn btn-secondary">Reset</button>
                     </div>
                     <div class="col-6 text-center">
-                        <button class="btn btn-success">Save Client</button>
+                        <button class="btn btn-success" (click)="onSaveClient()">
+                            {{ clientObj.clientId != 0 ? 'Update Client' : 'Save Client' }}
+                        </button>
                     </div>
                 </div>
             </div>
